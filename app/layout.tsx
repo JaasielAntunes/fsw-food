@@ -6,8 +6,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Setup do projeto',
-  description: 'Configurando o projeto.',
+  title: 'FSW Food',
+  description: 'Projeto em desenvolvimento.',
 }
 
 export default function RootLayout({
@@ -17,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="icon" href="/icon.png" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
