@@ -1,5 +1,6 @@
 import { Category } from '@prisma/client'
 import Image from 'next/image'
+
 interface CategoryItemProps {
   category: Category
 }
