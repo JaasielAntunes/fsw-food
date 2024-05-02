@@ -11,7 +11,7 @@ interface RestaurantItemProps {
   className?: string
 }
 
-export default async function RestaurantItem({
+export default function RestaurantItem({
   restaurant,
   className,
 }: RestaurantItemProps) {
