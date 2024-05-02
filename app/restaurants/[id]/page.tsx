@@ -5,6 +5,7 @@ import { StarIcon } from 'lucide-react'
 import DeliveryInfo from '@/app/_components/delivery-info'
 import ProductList from '@/app/_components/product-list'
 import RestaurantImage from './_components/restaurant-image'
+import CartBanner from './_components/cart-banner'
 
 interface RestaurantPageProps {
   params: {
@@ -57,10 +58,11 @@ export default async function RestaurantPage({
   }
 
   return (
-    <div className="pb-5">
+    <div>
       <RestaurantImage restaurant={restaurant} />
 
       <div className="relative z-50 mt-[-1.5rem] flex items-center justify-between rounded-tl-3xl rounded-tr-3xl bg-white px-5 pt-5">
+        {/* TITULO */}
         <div className="flex items-center gap-[0.375rem]">
           <div className="relative h-8 w-8">
             <Image
@@ -97,16 +99,20 @@ export default async function RestaurantPage({
       </div>
 
       <div className="mt-6 space-y-4">
+        {/* TODO: mostrar produtos mais pedidos quando implementarmos realização de pedido */}
         <h2 className="px-5  font-semibold">Mais Pedidos</h2>
         <ProductList products={restaurant.products} />
       </div>
 
       {restaurant.categories.map((category) => (
         <div className="mt-6 space-y-4" key={category.id}>
+          {/* TODO: mostrar produtos mais pedidos quando implementarmos realização de pedido */}
           <h2 className="px-5  font-semibold">{category.name}</h2>
           <ProductList products={category.products} />
         </div>
       ))}
+
+      <CartBanner restaurant={restaurant} />
     </div>
   )
 }
