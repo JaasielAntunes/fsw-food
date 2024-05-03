@@ -29,7 +29,7 @@ export default function Header() {
   const handleSignInClick = () => signIn()
 
   return (
-    <div className="flex justify-between px-5 pt-5">
+    <div className="flex justify-between px-5 pt-6">
       <div className="relative h-[30px] w-[100px]">
         <Link href="/">
           <Image
@@ -40,6 +40,7 @@ export default function Header() {
           />
         </Link>
       </div>
+
       <Sheet>
         <SheetTrigger>
           <Button
@@ -58,7 +59,7 @@ export default function Header() {
 
           {data?.user ? (
             <>
-              <div className="flex justify-between pt-5">
+              <div className="flex justify-between pt-6">
                 <div className="flex items-center gap-3">
                   <Avatar>
                     <AvatarImage
@@ -90,27 +91,32 @@ export default function Header() {
             </>
           )}
 
-          <div className="py-5">
+          <div className="py-6">
             <Separator />
           </div>
 
           <div className="space-y-2">
-            <Button
-              variant="ghost"
-              className="w-full justify-start space-x-3 rounded-full text-sm font-normal text-red-600"
-            >
-              <HomeIcon size={18} />
-              <span className="block">Início</span>
-            </Button>
+            <Link href="/">
+              <Button
+                variant="ghost"
+                className="w-full justify-start space-x-3 rounded-full text-sm font-normal text-red-600"
+              >
+                <HomeIcon size={16} />
+                <span className="block">Início</span>
+              </Button>
+            </Link>
 
             {data?.user && (
               <>
                 <Button
                   variant="ghost"
                   className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
+                  asChild
                 >
-                  <ScrollTextIcon size={16} />
-                  <span className="block">Meus Pedidos</span>
+                  <Link href="/my-orders">
+                    <ScrollTextIcon size={16} />
+                    <span className="block">Meus Pedidos</span>
+                  </Link>
                 </Button>
 
                 <Button
@@ -124,7 +130,7 @@ export default function Header() {
             )}
           </div>
 
-          <div className="py-5">
+          <div className="py-6">
             <Separator />
           </div>
 
