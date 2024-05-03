@@ -70,7 +70,8 @@ export default function Cart({ setIsOpen }: CartProps) {
       clearCart()
       setIsOpen(false)
 
-      toast('Pedido finalizado com sucesso!', {
+      toast.success('Pedido finalizado com sucesso!', {
+        icon: '👏',
         description: 'Você pode acompanhá-lo na tela dos seus pedidos.',
         action: {
           label: 'Meus Pedidos',
@@ -78,7 +79,9 @@ export default function Cart({ setIsOpen }: CartProps) {
         },
       })
     } catch (error) {
-      console.error(error)
+      toast.error(
+        'Opss 😢, ocorreu um erro ao finalizar o pedido! Tente novamente.',
+      )
     } finally {
       setIsSubmitLoading(false)
     }

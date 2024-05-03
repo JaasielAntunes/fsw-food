@@ -28,7 +28,7 @@ export default function Search() {
   return (
     <form className="mx-5 flex gap-2" onSubmit={handleSearchSubmit}>
       <Input
-        placeholder="Buscar restaurantes"
+        placeholder="Busque por restaurantes"
         className="border-none"
         onChange={handleChange}
         value={search}
