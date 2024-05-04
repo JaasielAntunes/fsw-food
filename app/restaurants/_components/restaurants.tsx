@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { searchForRestaurants } from '../_actions/search'
 import Header from '@/app/_components/header'
 import RestaurantItem from '@/app/_components/restaurant-item'
+import Link from 'next/link'
 
 export default function Restaurants() {
   const searchParams = useSearchParams()
@@ -31,16 +32,33 @@ export default function Restaurants() {
     <>
       <Header />
       <div className="px-5 py-6">
-        <h2 className="mb-6 text-lg font-semibold">Restaurantes Encontrados</h2>
-        <div className="flex w-full flex-col gap-6">
-          {restaurants.map((restaurant) => (
-            <RestaurantItem
-              key={restaurant.id}
-              restaurant={restaurant}
-              className="min-w-full max-w-full"
-            />
-          ))}
-        </div>
+        {restaurants.length > 0 ? (
+          <>
+            <h2 className="mb-6 text-lg font-semibold">
+              Restaurantes Encontrados
+            </h2>
+            <div className="flex w-full flex-col gap-6">
+              {restaurants.map((restaurant) => (
+                <RestaurantItem
+                  key={restaurant.id}
+                  restaurant={restaurant}
+                  className="min-w-full max-w-full"
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="flex flex-col items-center">
+            <h2 className="mb-4 font-semibold">
+              ⚠️ Não foi encontrado nenhum restaurante com o nome buscado.
+            </h2>
+            <p className="mb-6">
+              <Link href="/" className="text-sm font-semibold text-primary">
+                Clique aqui para voltar à página inicial.
+              </Link>
+            </p>
+          </div>
+        )}
       </div>
     </>
   )
