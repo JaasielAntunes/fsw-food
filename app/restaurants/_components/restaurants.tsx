@@ -49,11 +49,14 @@ export default function Restaurants() {
           </>
         ) : (
           <div className="flex flex-col items-center">
-            <h2 className="mb-4 font-semibold">
+            <h2 className="mb-4 text-center font-semibold">
               ⚠️ Não foi encontrado nenhum restaurante com o nome buscado.
             </h2>
             <p className="mb-6">
-              <Link href="/" className="text-sm font-semibold text-primary">
+              <Link
+                href="/"
+                className="text-center text-sm font-semibold text-primary"
+              >
                 Clique aqui para voltar à página inicial.
               </Link>
             </p>
