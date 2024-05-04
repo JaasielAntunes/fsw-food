@@ -18,6 +18,7 @@ export default async function RecommendedRestaurants() {
               key={restaurant.id}
               restaurant={restaurant}
               className="min-w-full max-w-full"
+              userFavoriteRestaurants={[]}
             />
           ))}
         </div>
