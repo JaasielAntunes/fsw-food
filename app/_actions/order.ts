@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 "use server";
 
 import { Prisma } from "@prisma/client";

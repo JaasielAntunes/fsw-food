@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { AuthOptions } from "next-auth";
 import { db } from "./prisma";

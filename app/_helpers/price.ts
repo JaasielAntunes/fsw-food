@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Product } from "@prisma/client";
 
 export const calculateProductTotalPrice = (product: Product): number => {
