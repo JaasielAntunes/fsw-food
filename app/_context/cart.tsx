@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 'use client'
 
 import { Prisma } from '@prisma/client'
-import { ReactNode, createContext, useMemo, useState } from 'react'
+import { ReactNode, createContext, useState } from 'react'
 import { calculateProductTotalPrice } from '../_helpers/price'
 
 export interface CartProduct
@@ -51,7 +52,7 @@ export const CartContext = createContext<ICartContext>({
   clearCart: () => {},
 })
 
-export default function CartProvider({ children }: { children: ReactNode }) {
+export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<CartProduct[]>([])
 
   const subtotalPrice = products.reduce((acc, product) => {
