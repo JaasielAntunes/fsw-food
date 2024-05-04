@@ -4,6 +4,7 @@ import { authOptions } from '../_lib/auth'
 import { notFound } from 'next/navigation'
 import Header from '../_components/header'
 import RestaurantItem from '../_components/restaurant-item'
+import Link from 'next/link'
 
 export default async function Page() {
   const session = await getServerSession(authOptions)
@@ -22,7 +23,7 @@ export default async function Page() {
       <Header />
       <div className="px-5 py-6">
         <h2 className="mb-6 text-lg font-semibold">Restaurantes Favoritos</h2>
-        <div className="flex w-full flex-col gap-6">
+        <div className="flex w-full flex-col gap-6 text-center text-sm">
           {userFavoriteRestaurants.length > 0 ? (
             userFavoriteRestaurants.map(({ restaurant }) => (
               <RestaurantItem
@@ -33,9 +34,19 @@ export default async function Page() {
               />
             ))
           ) : (
-            <h3 className="font-medium">
-              Você ainda não marcou nenhum restaurante como favorito!
-            </h3>
+            <div className="flex flex-col items-center">
+              <h3 className="font-medium">
+                ⚠️ Você ainda não marcou nenhum restaurante como favorito!
+              </h3>
+              <p className="mb-6">
+                <Link
+                  href="/"
+                  className="text-center text-sm font-semibold text-primary"
+                >
+                  Clique aqui para voltar à página inicial.
+                </Link>
+              </p>
+            </div>
           )}
         </div>
       </div>

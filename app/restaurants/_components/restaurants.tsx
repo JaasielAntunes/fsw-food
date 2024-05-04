@@ -43,6 +43,7 @@ export default function Restaurants() {
                   key={restaurant.id}
                   restaurant={restaurant}
                   className="min-w-full max-w-full"
+                  userFavoriteRestaurants={[]}
                 />
               ))}
             </div>
