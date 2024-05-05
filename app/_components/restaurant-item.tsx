@@ -52,6 +52,7 @@ export default function RestaurantItem({
             <Image
               src={restaurant.imageUrl}
               fill
+              sizes="100%"
               className="rounded-lg object-cover"
               alt={restaurant.name}
             />

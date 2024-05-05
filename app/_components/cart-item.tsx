@@ -32,6 +32,7 @@ export default function CartItem({ cartProduct }: CartItemProps) {
             src={cartProduct.imageUrl}
             alt={cartProduct.name}
             fill
+            sizes="100%"
             className="rounded-lg object-cover"
           />
         </div>
