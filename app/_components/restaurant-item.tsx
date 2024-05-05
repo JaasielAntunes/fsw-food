@@ -23,8 +23,6 @@ export default function RestaurantItem({
   className,
   userId,
 }: RestaurantItemProps) {
-  console.log(userFavoriteRestaurants)
-
   const isFavorite = userFavoriteRestaurants.some(
     (fav) => fav.restaurantId === restaurant.id,
   )
