@@ -24,7 +24,7 @@ const useToggleFavoriteRestaurant = ({
     try {
       await toggleFavoriteRestaurant(userId, restaurantId);
 
-      toast(
+      toast.success(
         restaurantIsFavorited
           ? "Restaurante removido dos favoritos."
           : "Restaurante favoritado.",

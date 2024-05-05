@@ -103,7 +103,7 @@ export default function Header() {
                 variant="ghost"
                 className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
               >
-                <HomeIcon size={16} />
+                <HomeIcon size={16} className="text-primary" />
                 <span className="block">Início</span>
               </Button>
             </Link>
@@ -116,7 +116,7 @@ export default function Header() {
                   asChild
                 >
                   <Link href="/my-orders">
-                    <ScrollTextIcon size={16} />
+                    <ScrollTextIcon size={16} className="text-primary" />
                     <span className="block">Meus Pedidos</span>
                   </Link>
                 </Button>
@@ -127,7 +127,7 @@ export default function Header() {
                   asChild
                 >
                   <Link href="/my-favorite-restaurants">
-                    <HeartIcon size={16} />
+                    <HeartIcon size={16} className="text-primary" />
                     <span className="block">Restaurantes Favoritos</span>
                   </Link>
                 </Button>
@@ -145,7 +145,7 @@ export default function Header() {
               className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
               onClick={handleSignOutClick}
             >
-              <LogOutIcon size={16} />
+              <LogOutIcon size={16} className="text-primary" />
               <span className="block">Sair da conta</span>
             </Button>
           )}
