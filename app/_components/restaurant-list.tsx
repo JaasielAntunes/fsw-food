@@ -20,7 +20,6 @@ export default async function RestaurantList() {
         <RestaurantItem
           key={restaurant.id}
           restaurant={restaurant}
-          userId={session?.user?.id}
           userFavoriteRestaurants={userFavoriteRestaurants}
         />
       ))}
