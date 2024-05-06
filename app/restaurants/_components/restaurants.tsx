@@ -7,6 +7,7 @@ import { searchForRestaurants } from '../_actions/search'
 import Header from '@/app/_components/header'
 import RestaurantItem from '@/app/_components/restaurant-item'
 import Link from 'next/link'
+import Search from '@/app/_components/search'
 
 interface RestaurantProps {
   userFavoriteRestaurants: UserFavoriteRestaurant[]
@@ -37,7 +38,11 @@ export default function Restaurants({
   return (
     <>
       <Header />
-      <div className="px-5 py-6">
+      <div className="py-5 pt-6">
+        <Search />
+      </div>
+
+      <div className="px-5 py-2">
         {restaurants.length > 0 ? (
           <>
             <h2 className="mb-6 text-lg font-semibold">
@@ -57,14 +62,14 @@ export default function Restaurants({
         ) : (
           <div className="flex flex-col items-center">
             <h2 className="mb-4 text-center font-semibold">
-              ⚠️ Não foi encontrado nenhum restaurante com o nome buscado.
+              Não foi encontrado nenhum restaurante com o nome buscado.
             </h2>
             <p className="mb-6">
               <Link
                 href="/"
-                className="text-center text-sm font-semibold text-primary"
+                className="text-center text-sm font-semibold text-primary hover:underline"
               >
-                Clique aqui para voltar à página inicial.
+                Voltar à página inicial
               </Link>
             </p>
           </div>

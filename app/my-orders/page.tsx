@@ -36,15 +36,15 @@ export default async function MyOrders() {
 
         {orders.length === 0 ? (
           <div className="flex flex-col items-center">
-            <h3 className="font-medium">
-              ⚠️ Você ainda não possui pedidos realizados!
+            <h3 className="mb-4 font-medium">
+              Você ainda não possui pedidos realizados!
             </h3>
             <p className="mb-6">
               <Link
                 href="/"
-                className="text-center text-sm font-semibold text-primary"
+                className="text-center text-sm font-semibold text-primary hover:underline"
               >
-                Clique aqui para voltar à página inicial.
+                Voltar à página inicial
               </Link>
             </p>
           </div>

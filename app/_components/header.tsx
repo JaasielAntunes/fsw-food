@@ -25,8 +25,8 @@ import { Separator } from './ui/separator'
 export default function Header() {
   const { data } = useSession()
 
-  const handleSignOutClick = () => signOut()
   const handleSignInClick = () => signIn()
+  const handleSignOutClick = () => signOut()
 
   return (
     <div className="flex justify-between px-5 pt-6">

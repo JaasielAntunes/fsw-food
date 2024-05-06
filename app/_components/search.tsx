@@ -19,7 +19,7 @@ export default function Search() {
     e.preventDefault()
 
     if (!search) {
-      toast.error('Informe um nome de restaurante para a busca!', {
+      toast.error('Informe o nome de um restaurante para a busca!', {
         position: 'top-center',
         closeButton: true,
         duration: 5000,
