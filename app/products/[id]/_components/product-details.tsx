@@ -27,7 +27,7 @@ import {
   calculateProductTotalPrice,
 } from '@/app/_helpers/price'
 import { Prisma } from '@prisma/client'
-import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
+import { Minus, Plus } from 'lucide-react'
 import Image from 'next/image'
 import { useContext, useState } from 'react'
 
@@ -76,14 +76,23 @@ export default function ProductDetails({
     })
   }
 
-  const handleIncreaseQuantityClick = () =>
-    setQuantity((currentState) => currentState + 1)
+  const handleIncreaseQuantityClick = () => {
+    if (quantity < 20) {
+      setQuantity((currentState) => currentState + 1)
+    }
+  }
+
   const handleDecreaseQuantityClick = () =>
     setQuantity((currentState) => {
       if (currentState === 1) return 1
 
       return currentState - 1
     })
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = parseInt(e.target.value)
+    setQuantity(newQuantity >= 1 ? (newQuantity <= 20 ? newQuantity : 20) : 1)
+  }
 
   return (
     <>
@@ -135,11 +144,19 @@ export default function ProductDetails({
               className="border border-solid border-muted-foreground"
               onClick={handleDecreaseQuantityClick}
             >
-              <ChevronLeftIcon />
+              <Minus />
             </Button>
-            <span className="w-4">{quantity}</span>
+            <input
+              type="number"
+              min="1"
+              max="20"
+              maxLength={2}
+              value={quantity}
+              onChange={handleChangeInput}
+              className="w-7 border-red-500 text-center outline-red-500"
+            />
             <Button size="icon" onClick={handleIncreaseQuantityClick}>
-              <ChevronRightIcon />
+              <Plus />
             </Button>
           </div>
         </div>

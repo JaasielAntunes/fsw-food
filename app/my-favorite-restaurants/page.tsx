@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth'
 import { db } from '../_lib/prisma'
 import { authOptions } from '../_lib/auth'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Header from '../_components/header'
 import RestaurantItem from '../_components/restaurant-item'
 import Link from 'next/link'
@@ -11,7 +11,7 @@ export default async function Page() {
   const session = await getServerSession(authOptions)
 
   if (!session?.user) {
-    return notFound()
+    redirect('/')
   }
 
   const userFavoriteRestaurants = await db.userFavoriteRestaurant.findMany({
