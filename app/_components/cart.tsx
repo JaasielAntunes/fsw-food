@@ -7,8 +7,8 @@ import { Separator } from './ui/separator'
 import { Button } from './ui/button'
 import { createOrder } from '../_actions/order'
 import { OrderStatus } from '@prisma/client'
-import { useSession } from 'next-auth/react'
-import { Loader2 } from 'lucide-react'
+import { signIn, useSession } from 'next-auth/react'
+import { Loader2, LogInIcon } from 'lucide-react'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,6 +21,7 @@ import {
 } from './ui/alert-dialog'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 interface CartProps {
   setIsOpen: (isOpen: boolean) => void
@@ -87,6 +88,8 @@ export default function Cart({ setIsOpen }: CartProps) {
     }
   }
 
+  const handleSignInClick = () => signIn()
+
   return (
     <>
       <div className="flex h-full flex-col py-5">
@@ -97,7 +100,6 @@ export default function Cart({ setIsOpen }: CartProps) {
                 <CartItem key={product.id} cartProduct={product} />
               ))}
             </div>
-
             {/* TOTAIS */}
             <div className="mt-6">
               <Card>
@@ -137,15 +139,32 @@ export default function Cart({ setIsOpen }: CartProps) {
                 </CardContent>
               </Card>
             </div>
-
             {/* FINALIZAR PEDIDO */}
-            <Button
-              className="mt-5 w-full"
-              onClick={() => setIsConfirmDialogOpen(true)}
-              disabled={isSubmitLoading}
-            >
-              Finalizar pedido
-            </Button>
+            {data?.user ? (
+              <Button
+                className="mt-5 w-full"
+                onClick={() => setIsConfirmDialogOpen(true)}
+                disabled={isSubmitLoading}
+              >
+                Finalizar pedido
+              </Button>
+            ) : (
+              <>
+                <span className="mt-3 text-center text-sm">
+                  Faça login para finalizar seu pedido
+                  <Button
+                    size="icon"
+                    onClick={handleSignInClick}
+                    className="ml-3 h-7 w-7"
+                  >
+                    <LogInIcon size={16} />
+                  </Button>
+                </span>
+                <Button className="mt-4 w-full cursor-not-allowed opacity-50">
+                  Finalizar pedido
+                </Button>
+              </>
+            )}
           </>
         ) : (
           <h2 className="text-left font-medium">Sua sacola está vazia.</h2>
