@@ -21,6 +21,7 @@ login e logout, realizar pedido, marcar ou desmarcar restaurante como favorito e
 - Usuário só pode finalizar o pedido se estiver logado
 - Limitação de itens na sacola
 - Limitação do campo de busca por restaurante
+- Inserir manualmente a quantidade de itens na sacola
 - Redirecionamento de página em caso de realizar logout
 
 ---
