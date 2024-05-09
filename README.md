@@ -8,11 +8,20 @@
 
 ---
 
-## 📁 Sobre o projeto
+## 📝 Sobre o projeto
 
 O FSW Food é uma aplicação Web responsiva que simula o funcionamento do Ifood, mas com algumas limitações. A principal ideia do projeto foi pôr em prática o conhecimento prévio
 nas tecnologias React utilizando o framework Next e assim elevar esse conhecimento ao próximo nível. A aplicação possui as funcionalidades de autenticação com Google, realizar 
 login e logout, realizar pedido, marcar ou desmarcar restaurante como favorito e buscar por restaurantes.
+
+---
+
+## ✅ Melhorias implementadas
+
+- Usuário só pode finalizar o pedido se estiver logado
+- Limitação de itens na sacola
+- Limitação do campo de busca por restaurante
+- Redirecionamento de página em caso de realizar logout
 
 ---
 
@@ -21,7 +30,7 @@ https://nlw-react-notes.netlify.app
 
 ---
 
-## Requisitos
+## 📁 Requisitos
 
 - Node.js versão 20 ou superior
 - Docker
