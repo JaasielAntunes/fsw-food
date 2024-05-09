@@ -27,16 +27,18 @@ interface OrderItemProps {
 
 const getOrderStatusLabel = (status: OrderStatus) => {
   switch (status) {
+    case 'ACCEPTED':
+      return 'Aceito'
     case 'CANCELED':
       return 'Cancelado'
-    case 'COMPLETED':
-      return 'Finalizado'
-    case 'CONFIRMED':
-      return 'Confirmado'
-    case 'DELIVERING':
-      return 'Em Transporte'
     case 'PREPARING':
       return 'Preparando'
+    case 'DELIVERING':
+      return 'Saiu para entrega'
+    case 'DELIVERED':
+      return 'Entregue'
+    case 'CONFIRMED':
+      return 'Pedido concluído'
   }
 }
 
@@ -63,7 +65,7 @@ export default function OrderItem({ order }: OrderItemProps) {
     <Card>
       <CardContent className="p-5">
         <div
-          className={`w-fit rounded-full bg-[#EEEEEE] px-2 py-1 text-muted-foreground ${order.status !== 'COMPLETED' && 'bg-green-500 text-white'}`}
+          className={`w-fit rounded-full bg-[#EEEEEE] px-2 py-1 text-muted-foreground ${order.status !== 'DELIVERED' && 'bg-green-500 text-white'}`}
         >
           <span className="block text-xs font-semibold">
             {getOrderStatusLabel(order.status)}
@@ -121,8 +123,8 @@ export default function OrderItem({ order }: OrderItemProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="text-xs text-primary"
-            disabled={order.status !== 'COMPLETED'}
+            className="cursor-not-allowed text-xs text-primary"
+            disabled={order.status === 'CONFIRMED'}
             onClick={handleRedoOrderClick}
           >
             Refazer pedido

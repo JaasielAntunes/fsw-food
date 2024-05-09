@@ -132,9 +132,10 @@ model Order {
 }
 
 enum OrderStatus {
+  ACCEPTED
   CONFIRMED
   CANCELED
   PREPARING
   DELIVERING
-  COMPLETED
+  DELIVERED
 }
