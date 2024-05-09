@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { CartContext, CartProduct } from '../_context/cart'
 import { calculateProductTotalPrice, formatCurrency } from '../_helpers/price'
 import { Button } from './ui/button'
-import { ChevronLeftIcon, ChevronRightIcon, TrashIcon } from 'lucide-react'
+import { Minus, Plus, TrashIcon } from 'lucide-react'
 import { memo, useContext } from 'react'
 
 interface CartItemProps {
@@ -61,10 +61,7 @@ export default function CartItem({ cartProduct }: CartItemProps) {
               variant="ghost"
               className="h-7 w-7 border border-solid border-muted-foreground"
             >
-              <ChevronLeftIcon
-                size={16}
-                onClick={handleDecreaseQuantityClick}
-              />
+              <Minus size={16} onClick={handleDecreaseQuantityClick} />
             </Button>
             <p className="block w-8 text-xs">{cartProduct.quantity}</p>
             <Button
@@ -72,7 +69,7 @@ export default function CartItem({ cartProduct }: CartItemProps) {
               className="h-7 w-7"
               onClick={handleIncreaseQuantityClick}
             >
-              <ChevronRightIcon size={16} />
+              <Plus size={16} />
             </Button>
           </div>
         </div>
